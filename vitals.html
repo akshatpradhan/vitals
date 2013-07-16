@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vitals &mdash; showing the health of the
+    organization</title>
+    <meta http-equiv="refresh" content="300">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap CSS -->
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="overrides.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <!-- Bootstrap.js -->
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"></script>
+
+
+    <!-- D3.js -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/2.10.0/d3.v2.min.js"></script>
+
+    <!-- Cubism.js -->
+    <script src="https://raw.github.com/square/cubism/master/cubism.v1.js"></script>
+
+  </head>
+  <body>
+    <header>
+      <div class="navbar navbar-static-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <div class="row">
+              <div class="span10">
+                <a href="index.html"
+                   class="brand"><strong>Vitals</strong></a>
+              </div>
+              <div class="span2">
+                <button class="btn pull-right"
+                type="button" data-toggle="modal"
+                data-target="#myModal"><i class="icon-plus"></i> Add a
+                chart </button>
+                <div class="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">New Chart</h3>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="control-group">
+                        <label class="control-label"><h5>What kind of
+                            chart is this?</h5></label>
+                        <div class="controls">
+                          <label class="radio inline">
+                            <input type="radio" name="optionRadios" value="Line"> Line
+                          </label>
+                          <label class="radio inline">
+                            <input type="radio" name="optionRadios" value="Horizon"> Horizon
+                          </label>
+                          <label class="radio inline">
+                            <input type="radio" name="optionRadio" value="Area"> Area
+                          </label>
+                          <label class="radio inline">
+                            <input type="radio" name="optionRadio" value="Comparison"> Comparison
+                          </label>
+                        </div>
+                      </div>
+                      <div class="control-group" style="margin-top:25px">
+                        <label class="control-label"><h5>What metric
+                        are you measuring?</h5></label>
+                        <div class="controls">
+                          <input type="text" class="span6"
+                                 placeholder="e.g. stats.spoutlets.controllers.Entry.new.status_code.200.*">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn">Preview</button>
+                    <button type="submit" class="btn btn-primary">Create!</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+
+      <div class="row">
+        <div class="span8">
+          <div class="appMetrics">
+            <h5>General metrics of the overall site</h5>
+            <div class="appMetric">
+              <script src="appMetrics.js">
+              </script>
+            </div>
+          </div>
+        </div>
+
+        <div class="span2">
+          <div style="margin-top:60px" class="well well-small">
+            <dl>
+              <dt>System status</dt>
+              <dd class="text-success">ok!</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="span2">
+          <div class="well well-small gap60">
+            <dl>
+              <dt>Last Create</dt>
+              <dd class="text-error">10 mins ago</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="row gap20">
+        <div class="span4">
+          <div class="databases">
+            <h5>Recent load on databases</h5>
+            <div class="database">
+              <script src="databases.js">
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="passengers">
+            <h5>Recent load on web servers</h5>
+            <div class="passenger">
+              <script src="passengers.js">
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="pollers">
+            <h5>Recent load on pollers</h5>
+            <div class="poller">
+              <script src="pollers.js">
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
